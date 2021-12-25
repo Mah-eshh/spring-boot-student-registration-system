@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -57,4 +58,13 @@ public class StudentController {
 		return new ResponseEntity<Student>(studentService.updateStudent(student, id), HttpStatus.OK );
 		
 	}
+	
+	//Create API to delete an Student 
+		@DeleteMapping("{id}")
+		public ResponseEntity<String> deleteStudent (@PathVariable("id")long id){
+			studentService.deleteStudent(id);
+			
+			return new ResponseEntity<String>("Student is deleted sucessfully now!...", HttpStatus.OK);
+			
+		}
 }

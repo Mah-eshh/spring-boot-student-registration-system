@@ -57,6 +57,17 @@ public class StudentServiceImpl implements StudentService {
 	}
 
 
+	@Override
+	public void deleteStudent(long id) {
+		
+		//check student exist in the database
+		studentRepository.findById(id).orElseThrow();
+				
+		studentRepository.deleteById(id);
+				
+	}
+
+
 	
 	
 	
