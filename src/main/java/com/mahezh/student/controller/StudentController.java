@@ -7,9 +7,11 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
 
 import com.mahezh.student.model.Student;
 import com.mahezh.student.service.StudentService;
@@ -40,7 +42,7 @@ public class StudentController {
 	}
 
 
-	//The API to get specific employee by the id
+	//Create API to get specific student by the id
 	
 	@GetMapping("{id}")
 	public ResponseEntity<Student> getStudentById(@PathVariable("id") long studentID){
@@ -48,4 +50,11 @@ public class StudentController {
 	}
 	
 	
+	//Create API to Update specific student by the id
+	@PutMapping("{id}")
+	public ResponseEntity<Student> updateStudent(@PathVariable("id")long id 
+				,@RequestBody Student student){
+		return new ResponseEntity<Student>(studentService.updateStudent(student, id), HttpStatus.OK );
+		
+	}
 }

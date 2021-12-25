@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+
 import com.mahezh.student.model.Student;
 import com.mahezh.student.repository.StudentRepository;
 
@@ -35,6 +36,23 @@ public class StudentServiceImpl implements StudentService {
 	public Student getStudentById(long id) {
 		
 		return studentRepository.findById(id).orElseThrow();
+	
+	}
+
+
+	@Override
+	public Student updateStudent(Student student, long id) {
+		
+		Student existingStudent = studentRepository.findById(id).orElseThrow();
+		
+		existingStudent.setStudentName(student.getStudentName());
+		existingStudent.setAge(student.getAge());
+		existingStudent.setAddress(student.getAddress());
+		existingStudent.setBirthDay(student.getBirthDay());
+		studentRepository.save(existingStudent);
+		return existingStudent;
+		
+		
 	
 	}
 
