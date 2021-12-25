@@ -1,5 +1,10 @@
 package com.mahezh.student.service;
 
-public class StudentService {
+import com.mahezh.student.model.Student;
 
+public interface StudentService {
+
+
+	Student saveStudent(Student student);
+	
 }

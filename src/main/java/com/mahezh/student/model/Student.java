@@ -1,13 +1,32 @@
 package com.mahezh.student.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "student")
+
 public class Student {
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	
 	private long id;
 	
-	
+	@Column(name ="student_name")
 	private String studentName;
+	
+	@Column(name = "age")
 	private int   age;
+	
+	@Column(name = "address")
 	private String  address;
+	
+	@Column(name = "birthday")
 	private String birthDay;
 	
 	public long getId () {
@@ -27,7 +46,7 @@ public class Student {
 	}
 	
 	public int getAge () {
-		return getAge();
+		return age;
 	}
 	
 	public int setAge(int age) {
