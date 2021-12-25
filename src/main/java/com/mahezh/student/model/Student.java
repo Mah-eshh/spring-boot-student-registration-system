@@ -17,16 +17,16 @@ public class Student {
 	
 	private long id;
 	
-	@Column(name ="student_name")
+	@Column(name ="student_name", nullable = false)
 	private String studentName;
 	
-	@Column(name = "age")
+	@Column(name = "age",  nullable = false)
 	private int   age;
 	
-	@Column(name = "address")
+	@Column(name = "address",  nullable = false)
 	private String  address;
 	
-	@Column(name = "birthday")
+	@Column(name = "birthday",  nullable = false)
 	private String birthDay;
 	
 	public long getId () {
@@ -62,11 +62,11 @@ public class Student {
 	}
 	
 	
-	public String setBirthDay() {
+	public String getBirthDay() {
 		return birthDay;
 	}
 	
-	public String getBirthDay(String birthDay) {
+	public String setBirthDay(String birthDay) {
 		return this.birthDay= birthDay;
 	}
 	

@@ -1,5 +1,7 @@
 package com.mahezh.student.service;
 
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
 
@@ -12,6 +14,7 @@ public class StudentServiceImpl implements StudentService {
 	private StudentRepository studentRepository;
 
 	public StudentServiceImpl (StudentRepository studentRepository) {
+	super();
 	this.studentRepository= studentRepository;
 }
 	
@@ -19,6 +22,13 @@ public class StudentServiceImpl implements StudentService {
 	public Student saveStudent(Student student) {
 		
 		return studentRepository.save(student);
+	}
+
+
+	@Override
+	public List<Student> getAllStudents() {
+		
+		return studentRepository.findAll();
 	}
 
 	

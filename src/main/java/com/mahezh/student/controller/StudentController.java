@@ -1,8 +1,12 @@
 package com.mahezh.student.controller;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,15 +20,23 @@ public class StudentController {
 	
 
 	public StudentService studentService;
+	
 	public StudentController (StudentService studentService) {
-		
+		super();
 		this.studentService = studentService;
 	}
 	
-	//Create APi to POST student details  
-	@PostMapping()
-	public ResponseEntity<Student> saveStudent(Student student){
+	//Create API to POST student details  
+	@PostMapping
+	public ResponseEntity<Student> saveStudent(@RequestBody Student student){
 		return new ResponseEntity<>(studentService.saveStudent(student), HttpStatus.CREATED);
+	}
+	
+	
+	//Create API to Retrieve (Read) all students.
+	@GetMapping
+	public List <Student> getAll(){
+		return studentService.getAllStudents();
 	}
 
 	
