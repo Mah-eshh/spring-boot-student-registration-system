@@ -26,7 +26,7 @@ public class Student {
 	@Column(name = "address",  nullable = false)
 	private String  address;
 	
-	@Column(name = "birthday",  nullable = false)
+	@Column(name = "birthDay",  nullable = false)
 	private String birthDay;
 	
 	public long getId () {

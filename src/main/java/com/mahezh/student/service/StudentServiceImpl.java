@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-
 import com.mahezh.student.model.Student;
 import com.mahezh.student.repository.StudentRepository;
 
@@ -31,7 +30,14 @@ public class StudentServiceImpl implements StudentService {
 		return studentRepository.findAll();
 	}
 
+
+	@Override
+	public Student getStudentById(long id) {
+		
+		return studentRepository.findById(id).orElseThrow();
 	
+	}
+
 
 	
 	
