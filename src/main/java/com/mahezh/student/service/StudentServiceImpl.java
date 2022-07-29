@@ -35,7 +35,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public Student getStudentById(long id) {
 		
-		return studentRepository.findById(id).orElseThrow();
+		return studentRepository.findById(id).orElseThrow(null);
 	
 	}
 
@@ -43,7 +43,7 @@ public class StudentServiceImpl implements StudentService {
 	@Override
 	public Student updateStudent(Student student, long id) {
 		
-		Student existingStudent = studentRepository.findById(id).orElseThrow();
+		Student existingStudent = studentRepository.findById(id).orElseThrow(null);
 		
 		existingStudent.setStudentName(student.getStudentName());
 		existingStudent.setAge(student.getAge());
@@ -61,7 +61,7 @@ public class StudentServiceImpl implements StudentService {
 	public void deleteStudent(long id) {
 		
 		//check student exist in the database
-		studentRepository.findById(id).orElseThrow();
+		studentRepository.findById(id).orElseThrow(null);
 				
 		studentRepository.deleteById(id);
 				
