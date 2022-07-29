@@ -30,14 +30,14 @@ public class StudentController {
 	}
 	
 	//Create API to POST student details  
-	@PostMapping
+	@PostMapping("/create")
 	public ResponseEntity<Student> saveStudent(@RequestBody Student student){
 		return new ResponseEntity<>(studentService.saveStudent(student), HttpStatus.CREATED);
 	}
 	
 	
 	//Create API to Retrieve (Read) all students.
-	@GetMapping
+	@GetMapping("/show_all_students")
 	public List <Student> getAll(){
 		return studentService.getAllStudents();
 	}
@@ -45,14 +45,14 @@ public class StudentController {
 
 	//Create API to get specific student by the id
 	
-	@GetMapping("{id}")
+	@GetMapping("/show_student/{id}")
 	public ResponseEntity<Student> getStudentById(@PathVariable("id") long studentID){
 		return new ResponseEntity<>(studentService.getStudentById(studentID), HttpStatus.OK);
 	}
 	
 	
 	//Create API to Update specific student by the id
-	@PutMapping("{id}")
+	@PutMapping("/update_student/{id}")
 	public ResponseEntity<Student> updateStudent(@PathVariable("id")long id 
 				,@RequestBody Student student){
 		return new ResponseEntity<Student>(studentService.updateStudent(student, id), HttpStatus.OK );
@@ -60,7 +60,7 @@ public class StudentController {
 	}
 	
 	//Create API to delete an Student 
-		@DeleteMapping("{id}")
+		@DeleteMapping("/delete_student/{id}")
 		public ResponseEntity<String> deleteStudent (@PathVariable("id")long id){
 			studentService.deleteStudent(id);
 			
